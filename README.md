@@ -1,11 +1,17 @@
 # Awesome Tasks
 
+![EXPO QR CODE]()
+
 - React Native
 - Redux
+- styled-components
+
+
 
 Links
 ---
 
+- [Expo project](https://exp.host/@aamnah/awesome-tasks?release-channel=staging)
 - [Figma](https://www.figma.com/file/oHPn9emVto5DPFziri8W3h)
 
 Credits
