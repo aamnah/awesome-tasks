@@ -1,0 +1,27 @@
+# This is the build configuration for React Native Expo project using Bitbucket Pipelines.
+# Configuration options: https://confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+---
+image: node:latest
+
+definitions:
+  caches: # configure caches to speed up builds. more: https://confluence.atlassian.com/bitbucket/caching-dependencies-895552876.html
+    npm: ~/.npm
+    # jest: .jest
+
+pipelines: # contains all your pipeline definitions. you can define multiple pipelines in the configuration file
+  default: # contains the steps that run on every push for any branche that isn't specifically added in this config.
+    - step: # each step starts a new Docker container with a clone of your repository, then runs the contents of your script section.
+        name: npm install & Deploy to Expo
+        caches:
+          - npm
+          # - jest
+        deployment: staging
+        trigger: manual
+        script: # a list of commands that are executed in sequence.
+            - npm ci
+            - npm i -g expo-cli # install globally cz npx wasn't working
+            - expo login -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD} # Use variables defined in Repository Settings
+            - expo publish --non-interactive --release-channel staging
