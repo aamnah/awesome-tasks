@@ -19,7 +19,6 @@ pipelines: # contains all your pipeline definitions. you can define multiple pip
           - npm
           # - jest
         deployment: staging
-        trigger: manual
         script: # a list of commands that are executed in sequence.
             - npm ci
             - npm i -g expo-cli # install globally cz npx wasn't working
