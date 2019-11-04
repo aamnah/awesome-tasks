@@ -1,6 +1,6 @@
 # Awesome Tasks
 
-![EXPO QR CODE]()
+![EXPO QR CODE](https://raw.githubusercontent.com/aamnah/awesome-tasks/master/assets/expo-qr.png)
 
 - React Native
 - Redux
